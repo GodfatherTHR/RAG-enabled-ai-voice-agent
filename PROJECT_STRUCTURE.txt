@@ -1,0 +1,218 @@
+═══════════════════════════════════════════════════════════════
+  📁 AI VOICE ASSISTANT - PROJECT STRUCTURE
+═══════════════════════════════════════════════════════════════
+
+F:/SAAS/Call_center AI agent/
+│
+├── 📄 Configuration Files
+│   ├── .env.local                  → Environment variables (configured)
+│   ├── .env.example                → Environment template
+│   ├── .gitignore                  → Git exclusions
+│   ├── package.json                → Dependencies & scripts
+│   ├── package-lock.json           → Locked dependencies
+│   ├── tsconfig.json               → TypeScript config
+│   ├── tailwind.config.ts          → Tailwind CSS config
+│   ├── postcss.config.mjs          → PostCSS config
+│   └── next.config.js              → Next.js config
+│
+├── 📚 Documentation
+│   ├── README.md                   → Full documentation
+│   ├── QUICK_START.md              → Quick start guide
+│   ├── SETUP_GUIDE.md              → Detailed setup
+│   ├── SETUP_CHECKLIST.txt         → Setup checklist
+│   ├── PROJECT_SUMMARY.md          → Technical overview
+│   └── PROJECT_STRUCTURE.txt       → This file
+│
+├── 🎨 Frontend (app/)
+│   ├── page.tsx                    → Main chat interface
+│   ├── layout.tsx                  → Root layout
+│   ├── globals.css                 → Global styles
+│   ├── favicon.ico                 → Site icon
+│   │
+│   ├── components/
+│   │   ├── MicButton.tsx           → Voice input button
+│   │   ├── ChatMessage.tsx         → Chat bubble UI
+│   │   └── LoadingDots.tsx         → Loading animation
+│   │
+│   └── api/
+│       ├── chat/route.ts           → Chat endpoint (RAG)
+│       ├── embed/route.ts          → Embedding generation
+│       ├── search/route.ts         → Vector search
+│       └── documents/route.ts      → Document management
+│
+├── 🛠️ Libraries (lib/)
+│   ├── gemini.ts                   → Gemini AI client
+│   ├── supabase.ts                 → Supabase client
+│   ├── rag.ts                      → RAG utilities
+│   ├── embedding.ts                → Embedding helpers
+│   └── speech.ts                   → Text-to-speech
+│
+├── 🗄️ Database (supabase/)
+│   └── schema.sql                  → PostgreSQL schema
+│                                     - company_docs table
+│                                     - company_vectors table
+│                                     - Vector search function
+│                                     - Sample data
+│
+├── 🔧 Scripts (scripts/)
+│   └── seed-embeddings.js          → Generate embeddings
+│
+└── 🏗️ Build Output
+    ├── .next/                      → Next.js build cache
+    └── node_modules/               → Dependencies
+
+═══════════════════════════════════════════════════════════════
+  📊 FILE COUNT
+═══════════════════════════════════════════════════════════════
+
+  Source Files:        20 files
+  Configuration:       10 files
+  Documentation:       6 files
+  Total:              36 files (excluding node_modules)
+
+═══════════════════════════════════════════════════════════════
+  🎯 KEY FILES TO KNOW
+═══════════════════════════════════════════════════════════════
+
+  START HERE:
+  • QUICK_START.md         → Get started in 5 minutes
+  • SETUP_CHECKLIST.txt    → Step-by-step checklist
+
+  MAIN APPLICATION:
+  • app/page.tsx           → Main UI (chat interface)
+  • app/api/chat/route.ts  → AI chat with RAG
+  • lib/rag.ts             → Vector search logic
+
+  DATABASE:
+  • supabase/schema.sql    → Database schema (RUN THIS!)
+  • scripts/seed-embeddings.js → Generate embeddings (RUN THIS!)
+
+  CONFIGURATION:
+  • .env.local             → API keys (already configured)
+  • package.json           → Dependencies
+
+  DOCUMENTATION:
+  • README.md              → Complete guide
+  • PROJECT_SUMMARY.md     → Technical details
+
+═══════════════════════════════════════════════════════════════
+  🔑 ENVIRONMENT VARIABLES (.env.local)
+═══════════════════════════════════════════════════════════════
+
+  ✅ NEXT_PUBLIC_SUPABASE_URL      → Configured
+  ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY → Configured
+  ✅ GEMINI_API_KEY                → Configured
+
+═══════════════════════════════════════════════════════════════
+  🚀 AVAILABLE SCRIPTS
+═══════════════════════════════════════════════════════════════
+
+  npm run dev          → Start development server
+  npm run build        → Build for production
+  npm run start        → Start production server
+  npm run lint         → Run ESLint
+
+  node scripts/seed-embeddings.js → Generate embeddings
+
+═══════════════════════════════════════════════════════════════
+  🌐 API ENDPOINTS
+═══════════════════════════════════════════════════════════════
+
+  POST /api/chat       → Generate AI response with RAG
+  POST /api/embed      → Generate text embedding
+  POST /api/search     → Search documents by similarity
+  POST /api/documents  → Add document to knowledge base
+
+═══════════════════════════════════════════════════════════════
+  📦 DEPENDENCIES
+═══════════════════════════════════════════════════════════════
+
+  Production:
+  • next                    → React framework
+  • react                   → UI library
+  • react-dom               → React DOM renderer
+  • @google/generative-ai   → Gemini AI SDK
+  • @supabase/supabase-js   → Supabase client
+
+  Development:
+  • typescript              → Type safety
+  • tailwindcss             → CSS framework
+  • postcss                 → CSS processing
+  • autoprefixer            → CSS vendor prefixes
+  • @types/*                → TypeScript definitions
+
+═══════════════════════════════════════════════════════════════
+  🎨 UI COMPONENTS
+═══════════════════════════════════════════════════════════════
+
+  MicButton.tsx        → Voice input with Web Speech API
+                        - Real-time transcription
+                        - Visual feedback
+                        - Error handling
+
+  ChatMessage.tsx      → Chat bubble component
+                        - User/Assistant styling
+                        - Responsive design
+                        - Text formatting
+
+  LoadingDots.tsx      → Loading animation
+                        - Animated dots
+                        - Smooth transitions
+
+═══════════════════════════════════════════════════════════════
+  🧠 AI & RAG SYSTEM
+═══════════════════════════════════════════════════════════════
+
+  Gemini AI Models:
+  • gemini-1.5-flash       → Chat responses
+  • text-embedding-004     → 768-dim embeddings
+
+  Vector Search:
+  • pgvector               → PostgreSQL extension
+  • Cosine similarity      → Distance metric
+  • Top-K retrieval        → Default: 3 documents
+
+  RAG Flow:
+  1. User query → Generate embedding
+  2. Vector search → Find similar docs
+  3. Inject context → Build prompt
+  4. Generate response → Gemini AI
+  5. Return answer → With context
+
+═══════════════════════════════════════════════════════════════
+  🗄️ DATABASE SCHEMA
+═══════════════════════════════════════════════════════════════
+
+  company_docs:
+  • id (bigserial)         → Primary key
+  • title (text)           → Document title
+  • content (text)         → Document content
+  • created_at (timestamp) → Creation time
+
+  company_vectors:
+  • id (bigserial)         → Primary key
+  • doc_id (bigint)        → Foreign key to company_docs
+  • embedding (vector)     → 768-dimensional vector
+  • created_at (timestamp) → Creation time
+
+  Functions:
+  • match_company_docs()   → Vector similarity search
+
+═══════════════════════════════════════════════════════════════
+  ✅ CURRENT STATUS
+═══════════════════════════════════════════════════════════════
+
+  ✅ Project structure created
+  ✅ All files generated
+  ✅ Dependencies installed
+  ✅ Environment configured
+  ✅ Dev server running → http://localhost:3000
+
+  ⏳ Database setup needed (see QUICK_START.md)
+  ⏳ Embeddings generation needed (see QUICK_START.md)
+
+═══════════════════════════════════════════════════════════════
+
+  📖 Read QUICK_START.md to complete setup!
+
+═══════════════════════════════════════════════════════════════
