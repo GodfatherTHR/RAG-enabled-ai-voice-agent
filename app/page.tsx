@@ -88,7 +88,7 @@ export default function Home() {
               🤖 AI Voice Assistant
             </h1>
             <p className="text-sm text-gray-500">
-              Powered by Gemini AI & Supabase RAG
+              Powered by Ithus
             </p>
           </div>
           {messages.length > 0 && (
@@ -111,9 +111,39 @@ export default function Home() {
               <h2 className="text-2xl font-semibold text-gray-700 mb-2">
                 Welcome to AI Voice Assistant
               </h2>
-              <p className="text-gray-500">
+              <p className="text-gray-500 mb-12">
                 Click the microphone or type a message to get started
               </p>
+
+              <div className="animate-fade-in-up">
+                <h3 className="text-lg font-medium text-gray-600 mb-6">Ask our agent about</h3>
+                <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+                  {[
+                    "Company Overview",
+                    "Product Features",
+                    "Pricing Plans",
+                    "Support Hours",
+                    "Installation Process",
+                    "Internet Plans Overview",
+                    "Early Cancellation Policy",
+                    "Router LED Guide",
+                    "Troubleshooting Slow Internet",
+                    "Refund Policy",
+                    "Customer Support Escalation",
+                    "Billing FAQ",
+                    "Data Usage Policy",
+                    "Service Outage Updates",
+                  ].map((topic) => (
+                    <button
+                      key={topic}
+                      onClick={() => sendMessage(topic)}
+                      className="px-4 py-2 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl text-sm text-gray-600 hover:bg-white hover:border-blue-300 hover:text-blue-600 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                    >
+                      {topic}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           ) : (
             messages.map((m, i) => <ChatMessage key={i} {...m} />)
