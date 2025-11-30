@@ -55,13 +55,7 @@ npm install
 
 ### 2. Set Up Environment Variables
 
-Create a `.env.local` file in the root directory:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://rntqxrxhyabzjirajxje.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJudHF4cnhoeWFiemppcmFqeGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzOTI1MzksImV4cCI6MjA3ODk2ODUzOX0.2BZuNcCnd6Cjnh3RDqOlaOhf4-DTaRtBJTg_oEsUthM
-GEMINI_API_KEY=AIzaSyBPCq8ZcyhrvdB6_5BT4Bm2Ywd3WWniLe4
-```
+Create a `.env.local` file in the root directory.
 
 ### 3. Set Up Supabase Database
 
